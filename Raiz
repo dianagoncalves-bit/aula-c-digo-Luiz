@@ -1,4 +1,5 @@
 DIANA GOUVEIA GONÇALVES
+//******************* Raiz *********************
 // Exibe uma mensagem solicitando o índice da raiz (ex: 2 para quadrada, 3 para cúbica)
 Console.WriteLine("\nescolha o valor da raiz\n");
 // Lê a entrada e tenta converter para um número inteiro (int) chamado 'valorraiz'
