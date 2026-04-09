@@ -1,7 +1,18 @@
-//************************* Raiz **************************
-Console.WriteLine("\nescolha o valor da raiz (raiz quadrada, raiz cubica, etc)\n");
+// Exibe uma mensagem solicitando o índice da raiz (ex: 2 para quadrada, 3 para cúbica)
+Console.WriteLine("\nescolha o valor da raiz\n");
+// Lê a entrada e tenta converter para um número inteiro (int) chamado 'valorraiz'
 int.TryParse(Console.ReadLine(), out int valorraiz);
+
+// Exibe uma mensagem solicitando o radicando (o número que está dentro da raiz)
 Console.WriteLine("\nagora escolha o número que será a raiz\n");
+
+// Lê a entrada e converte para 'double' (número decimal), permitindo cálculos precisos
 double.TryParse(Console.ReadLine(), out double numero1);
+
+// Apenas pula uma linha no console para melhorar a organização visual
 Console.WriteLine("\n");
+
+// Realiza o cálculo e exibe o resultado. 
+// O truque matemático: Raiz de N com índice X é o mesmo que N elevado a (1/X)
+// Math.Pow(base, expoente) é a função do C# para potenciação
 Console.WriteLine($"\no resultado da raiz {numero1} a {valorraiz} é {Math.Pow(numero1, 1.0 / valorraiz)}\n");
