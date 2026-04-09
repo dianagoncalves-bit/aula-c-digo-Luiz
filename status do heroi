@@ -1,0 +1,165 @@
+// Declaração de variáveis de combate e recompensas
+int ataquebase = 10; // Adicionado para o código funcionar
+int bonusarma = 5;   // Adicionado para o código funcionar
+int ataquetotal = ataquebase + bonusarma; // Soma o dano base com o bônus da arma
+double vidadoinimigo = 105.5; // Define a vida do monstro como um número decimal preciso
+double vidarestante = vidadoinimigo - (50.5 * 2); // Calcula quanto de vida sobra após um ataque duplo de 50.5
+float moedas = 400000f; // Quantidade de moedas (f indica que é um valor float)
+float bonusdevitoria = 2f; // Multiplicador de recompensa
+float totaldemoedas = bonusdevitoria * moedas; // Calcula o prêmio final dobrado
+long XP = 500000000; // Define uma quantidade alta de experiência usando long
+long mediadeXP = XP / 2; // Divide o XP total por dois níveis
+
+// --- Atributos da Raça Humana ---
+var vidahumana = 30; // Define a vida base do humano
+var forcahumana = vidahumana * 2; // A força é o dobro da vida (60)
+var agihumana = forcahumana + 40; // A agilidade é a força mais 40 (100)
+var fraqueza = "falta de resistência"; // Texto corrigido: resistência
+int ataquehumano = 5 + forcahumana; // Dano total do humano
+int bonusarmahum = 10 + agihumana; // Bônus específico da arma do humano
+int total = ataquetotal; // Armazena o ataque total para uso posterior
+
+// --- Atributos da Raça Elfo ---
+var vidaelfo = 100; // Define a vida base do elfo
+var forcaelfo = vidahumana * 1; // A força do elfo é igual à vida base humana
+var agielfo = forcahumana + 40; // A agilidade do elfo segue um cálculo similar à humana
+var fraquezaelfo = "maldição da vida eterna"; // Define a desvantagem da raça
+int ataqueelfo = 5 + forcaelfo; // Dano total do elfo
+int bonusarmael = 10 + agielfo; // Bônus da arma élfica
+int totalelfo = ataquetotal; // Total de ataque para a raça elfo
+
+// Início da interação com o usuário
+Console.WriteLine("qual é sua raça?");
+Console.WriteLine("Humano (H)");
+Console.WriteLine("Elfo (E)");
+
+string opcao = Console.ReadLine(); // Lê a escolha da raça
+
+// Início do bloco para a raça Humano
+//***************************************************************************************
+if (opcao == "H")
+{
+    Console.WriteLine(" olá nobre viajante, qual seu nome?");
+    string nome = Console.ReadLine(); // Armazena o nome do jogador
+    
+    // Diálogos do Taverneiro com correções ortográficas
+    Console.WriteLine("TAVERNEIRO: vejo que você não é uma pessoa comum, já que tem um dano de " + ataquehumano + " e parece ter bastante experiência");
+    Console.WriteLine("TAVERNEIRO: sua arma é boa também, onde conseguiu essa adaga? Ela tem dano de " + bonusarmahum);
+    Console.WriteLine("TAVERNEIRO: " + nome + ", sei o que te trouxe a esta taverna, você está atrás de uma missão para colocar seu nome na história, não é?");
+    
+    Console.WriteLine(nome + ": não, na verdade estou atrás de dinheiro, mas, bom, você acertou: quero uma missão.");
+    
+    Console.WriteLine("TAVERNEIRO: tsc, já não se fazem aventureiros como antigamente, mas gosto da sua franqueza. Eu tenho uma missão que ninguém quis fazer, está aqui há um mês, não porque não paga bem, mas sim porque é muito difícil. Um filhote de dragão tem dado problemas para as vilas ao redor da capital, o que acha?");
+
+    Console.WriteLine("\n Sim, aceito (S) | Não, não aceito (N)");
+    string opcao2 = Console.ReadLine(); // Lê a decisão sobre a missão
+
+    if (opcao2 == "S")
+    {
+        Console.WriteLine("TAVERNEIRO: ótimo, fico feliz que aceitou a aventura, vou contar o que você precisa saber sobre a missão: ");
+        Console.WriteLine("TAVERNEIRO: nós pagamos " + moedas + " moedas, mas se você o derrotar sem acarretar a ira da mãe, você recebe " + bonusdevitoria + " vezes mais que o valor original.");
+        Console.WriteLine("TAVERNEIRO: se você acertar ele em cheio com seu ataque total de " + total + ", eu acredito que vai conseguir derrotá-lo.");
+        Console.WriteLine("TAVERNEIRO: a vida do dragão é de " + vidadoinimigo);
+        Console.WriteLine("TAVERNEIRO: se conseguir atacar em cheio, a vida restante dele seria de " + vidarestante + ". Ele vai ficar à beira da morte. Lembre-se que só vou pagar se trouxer a cabeça dele.");
+        Console.WriteLine("TAVERNEIRO: então se seguir tudo o que eu disse, eu vou pagar " + totaldemoedas);
+
+        // Exibe informações de progresso do personagem
+        Console.WriteLine("\n mensagem para " + nome + ": você aceitou a missão. A quantidade de XP é " + XP + " que será dividida pelos 2 níveis que você vai evoluir, então sua média de XP por nível é " + mediadeXP);
+    }
+    
+    // Se o jogador recusar a missão
+    if (opcao2 == "N")
+    {
+        Console.WriteLine("TAVERNEIRO: hum, é uma pena, não se pode acreditar em profecias hoje em dia.");
+        Console.WriteLine("mensagem para " + nome + ": você fracassou na missão contra o dragão, porém o taverneiro falou de uma profecia. Quer saber mais sobre isso?");
+        Console.WriteLine("\n sim, quero saber (S) | não, me arrependi, vou aceitar a missão do dragão (N)");
+        
+        string opcao3 = Console.ReadLine(); // Lê a decisão sobre a profecia
+
+        if (opcao3 == "S")
+        {
+            Console.WriteLine(nome + ": eu gostaria de saber de que profecia você está falando.");
+            Console.WriteLine("TAVERNEIRO: bom, estou falando de uma profecia feita na capital há algum tempo. Foi dito que um aventureiro com o nome " + nome + " iria salvar o império em nome de Deus.");
+            Console.WriteLine("TAVERNEIRO: porém a igreja tem inventado mentiras para limpar sua própria corrupção. Tem um grupo de aventureiros investigando a igreja para desmascarar sua sujeira. Quer ir?");
+            Console.WriteLine(nome + ": ok, onde está esse grupo...");
+        }
+
+        // Permite que o jogador mude de ideia e aceite a missão do dragão
+        if (opcao3 == "N")
+        {
+            Console.WriteLine(nome + ": mudei de ideia, quero fazer a missão.");
+            Console.WriteLine("TAVERNEIRO: mudou de ideia, hein? Fico feliz que aceitou a aventura...");
+            Console.WriteLine("TAVERNEIRO: se conseguir atacar em cheio, a vida restante dele seria de " + vidarestante);
+            Console.WriteLine("TAVERNEIRO: então se seguir tudo o que eu disse eu vou pagar " + totaldemoedas);
+        }
+    }
+}
+// Caso a opção de raça não seja válida
+else 
+{
+    Console.WriteLine("opção inválida, tente novamente.");
+}
+//**********************************************************************
+// Inicia o bloco de código caso o jogador escolha a raça Elfo
+if (opcao == "E")
+{
+    // O Taverneiro cumprimenta o jogador e pergunta o seu nome
+    Console.WriteLine("TAVERNEIRO: olá, nobre viajante, qual seu nome?");
+    string nome = Console.ReadLine();
+
+    // Diálogo personalizado: Taverneiro nota que o jogador não é humano e comenta sobre seu dano
+    Console.WriteLine("TAVERNEIRO: vejo que você não é um humano, se é que posso te chamar de pessoa, já que tem um dano de " + ataqueelfo);
+
+    // Comenta sobre o poder da arma (adaga) do elfo
+    Console.WriteLine("TAVERNEIRO: sua arma é boa também, onde conseguiu essa adaga? Ela tem dano de " + bonusarmael);
+
+    // Introduz a motivação da raça: a busca pela relíquia élfica roubada
+    Console.WriteLine("TAVERNEIRO: " + nome + ", sei o que te trouxe a esta taverna, você está atrás da relíquia élfica roubada, não é?");
+    Console.WriteLine(nome + ": digamos que sim, você ouviu falar dela?");
+
+    // O Taverneiro oferece a missão do dragão como meio de recuperar o tesouro/relíquia
+    Console.WriteLine("TAVERNEIRO: como não ouvir? Todos estão falando sobre isso. Eu tenho uma missão que ninguém quis fazer, já está aqui há um mês. Tem um filhote de dragão atormentando a vila; ouvi dizer que o tesouro está na toca dele. Se se livrar dele, vou deixar como parte do pagamento, o que acha?");
+
+    // Exibe as opções de aceitação da missão
+    Console.WriteLine("\n sim, aceito (S) | não, não aceito (N)");
+    string opcao2 = (Console.ReadLine());
+
+    // CORREÇÃO: Aqui deve ser 'opcao2' para verificar a resposta do jogador (S ou N)
+    if (opcao2 == "S")
+    {
+        Console.WriteLine("TAVERNEIRO: ótimo, fico feliz que aceitou a aventura, vou contar o que você precisa saber sobre a missão: ");
+        Console.WriteLine("TAVERNEIRO: nós pagamos para você " + moedas + " mas se você derrotar sem acarretar a ira da mãe, você recebe " + bonusdevitoria + " vezes mais que o valor original, além da relíquia que é toda sua.");
+        Console.WriteLine("TAVERNEIRO: se você acertar ele em cheio com seu ataque total de " + totalelfo + ", eu acredito que vai conseguir derrotá-lo.");
+        Console.WriteLine("TAVERNEIRO: a vida do dragão é de " + vidadoinimigo);
+        Console.WriteLine("TAVERNEIRO: se conseguir atacar em cheio, a vida restante dele seria de " + vidarestante + ". Ele vai ficar à beira da morte. Lembre-se que eu só vou pagar se trouxer a cabeça dele.");
+        Console.WriteLine("TAVERNEIRO: então, se seguir tudo o que eu disse, eu vou pagar " + totaldemoedas);
+
+        // Exibe o sistema de recompensas e XP (Long para números grandes)
+        Console.WriteLine("\n mensagem para " + nome + ": você aceitou a missão. A quantidade de XP é " + XP + " que é dividido pela quantidade de níveis que você vai evoluir (2), então sua média de XP é " + mediadeXP);
+    }
+
+    // Se o jogador recusar a missão, o taverneiro menciona a profecia
+    if (opcao2 == "N")
+    {
+        Console.WriteLine("TAVERNEIRO: hum, é uma pena, não se pode acreditar em profecias hoje em dia.");
+        Console.WriteLine("mensagem para " + nome + ": você fracassou na missão contra o dragão, porém o taverneiro falou de uma profecia. Quer saber mais sobre isso?");
+        Console.WriteLine("\n sim, quero saber (S) | não, me arrependi, vou aceitar a missão do dragão (N)");
+        
+        string opcao3 = (Console.ReadLine());
+        if (opcao3 == "S")
+        {
+            Console.WriteLine(nome + ": de que profecia você está falando?");
+            Console.WriteLine("TAVERNEIRO: bom, estou falando de uma profecia feita na capital há algum tempo. Foi dito que um aventureiro com o nome " + nome + " iria salvar o império em nome de Deus.");
+            // Texto corrigido: removido erros de digitação como "iventado" e "limapar"
+            Console.WriteLine("TAVERNEIRO: porém a igreja tem inventado mentiras para limpar sua própria corrupção. Tem um grupo de aventureiros investigando a igreja para desmascarar sua sujeira. Talvez a igreja tenha informações sobre quem invadiu a cidade dos elfos, isso se não forem eles que estão por trás disso. Quer ir?");
+            Console.WriteLine(nome + ": ok, onde está esse grupo...");
+        }
+        // Opção para voltar atrás e aceitar a missão original
+        if (opcao3 == "N")
+        {
+            Console.WriteLine($"{nome}: na verdade, quero derrotar o dragão.");
+            Console.WriteLine("TAVERNEIRO: ótimo, fico feliz que aceitou a aventura...");
+            Console.WriteLine("TAVERNEIRO: se seguir tudo o que eu disse, eu vou pagar " + totaldemoedas);
+        }
+    }
+}
