@@ -1,3 +1,4 @@
+DIANA GOUVEIA GONÇALVES
 //******************* JUROS SIMPLES ********************
 // Exibe uma mensagem no console pedindo o valor do capital (o 'Con' inicial parece ter sido cortado)
 Console.Write("por favor digite o seus capital:"); 
