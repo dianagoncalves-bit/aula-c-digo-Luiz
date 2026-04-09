@@ -1,0 +1,15 @@
+//******************* JUROS SIMPLES ********************
+// Exibe uma mensagem no console pedindo o valor do capital (o 'Con' inicial parece ter sido cortado)
+Console.Write("por favor digite o seus capital:"); 
+// Lê o que o usuário digitou, tenta converter para um número decimal (float) e armazena na variável 'capital'
+float.TryParse (Console.ReadLine(), out float capital);
+// Exibe uma mensagem pedindo a taxa de juros (\n pula uma linha antes de escrever)
+Console.Write("\npor favor digite a taxa:");
+// Lê a entrada do usuário, tenta converter para float e armazena na variável 'taxa'
+float.TryParse (Console.ReadLine(), out float taxa);
+// Exibe uma mensagem pedindo o período de tempo em meses
+Console.Write("\npor favor digite o tempo por meses:");
+// Lê a entrada do usuário, tenta converter para um número inteiro e armazena na variável 'tempo'
+int.TryParse (Console.ReadLine(), out int tempo );
+// Calcula o juro simples (C * i * t) e exibe o resultado usando interpolação de string ($"")
+Console.Write($"\nseu juros deu: {capital*taxa*tempo}");
