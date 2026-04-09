@@ -1,0 +1,41 @@
+//************************* CALCULAR O RAIO PELAS RODADAS ***********************************
+// Exibe uma mensagem solicitando que o usuário informe quantas vezes deseja realizar o cálculo
+Console.Write("Digite o numero de rodadas: ");
+// Lê a entrada do teclado, tenta converter para um número inteiro e armazena na variável 'rodadas'
+int.TryParse(Console.ReadLine(), out int rodadas);
+// Inicia um laço de repetição (loop) que começa em 1 e vai até o número de rodadas informado
+for (int i = 1; i <= rodadas; i++)
+{
+    // Exibe uma mensagem pedindo o valor do raio atual, usando {i} para mostrar o número da rodada
+    Console.Write($"Digite o valor do raio {i}: ");
+
+    // Lê o que foi digitado, tenta converter para float (número com vírgula) e guarda em 'raio'
+    float.TryParse(Console.ReadLine(), out float raio);
+
+    // Calcula a área: eleva o raio ao quadrado (Math.Pow) e multiplica por PI, convertendo o resultado para float
+    float area = (float)Math.Pow(raio, 2f) * (float)Math.PI;
+
+    // Exibe o resultado final da área calculado nesta rodada específica
+    Console.WriteLine($"O Raio da Area e: Area {i} = {area}");
+}
+//************************** CALCULAR O RAIO *************************
+// Declara e inicia a variável de controle 'i' com o valor zero
+int i = 0;     
+// Inicia um laço de repetição que continuará executando enquanto o valor de 'i' for menor que 3
+while (i < 3)
+{
+    // Exibe uma mensagem no console pedindo o valor do raio (\n pula uma linha antes e depois)
+    Console.Write("\ndigite o valordo raio:\n");
+
+    // Lê a entrada do usuário, tenta converter para float e armazena na variável 'raio'
+    float.TryParse (Console.ReadLine(), out float raio);
+
+    // Calcula a área: eleva o raio ao quadrado (Pow), multiplica por PI e converte o resultado final para float
+    float area = (float)(Math.Pow(raio, 2.0)*(float)Math.PI);  
+
+    // Exibe o valor da área calculada usando interpolação de string ($) e pula uma linha no final
+    Console.Write($"o valor da AREA e = {area}\n");
+
+    // Incrementa o valor de 'i' em +1 para que o laço não seja infinito e chegue até o limite (3)
+    i++;
+}
