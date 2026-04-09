@@ -1,0 +1,7 @@
+//************************* Raiz **************************
+Console.WriteLine("\nescolha o valor da raiz (raiz quadrada, raiz cubica, etc)\n");
+int.TryParse(Console.ReadLine(), out int valorraiz);
+Console.WriteLine("\nagora escolha o número que será a raiz\n");
+double.TryParse(Console.ReadLine(), out double numero1);
+Console.WriteLine("\n");
+Console.WriteLine($"\no resultado da raiz {numero1} a {valorraiz} é {Math.Pow(numero1, 1.0 / valorraiz)}\n");
