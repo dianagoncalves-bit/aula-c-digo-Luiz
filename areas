@@ -1,0 +1,83 @@
+DIANA GOUVEIA GONÇALVES
+// Exibe o cabeçalho e a lista de opções para o usuário
+Console.WriteLine("aqui vamos calcular a área de certas figuras");
+Console.WriteLine(@"quadrado/retângulo (1) 
+triângulo (2) 
+pentágono (3) 
+hexágono (4) 
+octógono (5) 
+trápézio (6) 
+losango (7)");
+
+// Tenta converter a escolha do menu em um número inteiro
+int.TryParse(Console.ReadLine(), out int escolha);
+
+// O 'switch' avalia a variável 'escolha' e pula direto para o 'case' correspondente
+switch (escolha)
+{
+    case 1: // Bloco para Quadrado ou Retângulo
+        Console.WriteLine("qual a base?");
+        double.TryParse(Console.ReadLine(), out double Base);
+        Console.WriteLine("e qual a altura?");
+        double.TryParse(Console.ReadLine(), out double Altura);
+        // Exibe o resultado da multiplicação simples
+        Console.WriteLine($"então a área é de {Base * Altura}");
+        break; // O 'break' encerra o switch após executar este caso
+
+    case 2: // Bloco para Triângulo
+        Console.WriteLine("qual a base?");
+        double.TryParse(Console.ReadLine(), out double Base2);
+        Console.WriteLine("e qual a altura?");
+        double.TryParse(Console.ReadLine(), out double Altura2);
+        // Realiza o cálculo com parênteses para garantir a ordem de precedência
+        Console.WriteLine($"então a área é de {(Base2 * Altura2)/2}");
+        break;
+
+    case 3: // Bloco para Pentágono (baseado em perímetro e apótema)
+        Console.WriteLine("qual o perímetro?");
+        double.TryParse(Console.ReadLine(), out double Perímetro);
+        Console.WriteLine("e qual a apótema?");
+        double.TryParse(Console.ReadLine(), out double Apótema);
+        Console.WriteLine($"então a área é de {(Apótema * Perímetro)/2}");
+        break;
+
+    case 4: // Bloco para Hexágono Regular
+        Console.WriteLine("qual o lado?");
+        double.TryParse(Console.ReadLine(), out double Lado);
+        Console.WriteLine("e qual a apótema?");
+        double.TryParse(Console.ReadLine(), out double Apótema2);
+        // Calcula a área de um triângulo interno e multiplica por 6
+        Console.WriteLine($"então a área é de {((Lado * Apótema2)/2) * 6}");
+        break;
+
+    case 5: // Bloco para Octógono
+        Console.WriteLine("qual o lado?");
+        double.TryParse(Console.ReadLine(), out double Lado2);
+        Console.WriteLine("e qual a apótema?");
+        double.TryParse(Console.ReadLine(), out double Apótema3);
+        Console.WriteLine($"então a área é de {4 * Lado2 * Apótema3}");
+        break;
+
+    case 6: // Bloco para Trapézio
+        Console.WriteLine("qual a base maior?");
+        double.TryParse(Console.ReadLine(), out double BaseM);
+        Console.WriteLine("e qual a base menor?");
+        double.TryParse(Console.ReadLine(), out double Basem);
+        Console.WriteLine("e qual a altura?");
+        double.TryParse(Console.ReadLine(), out double Altura3);
+        // Soma as bases primeiro, multiplica pela altura e divide por 2
+        Console.WriteLine($"então a área é de {((BaseM + Basem)* Altura3)/2}");
+        break;
+
+    case 7: // Bloco para Losango
+        Console.WriteLine("qual a diagonal 1?");
+        double.TryParse(Console.ReadLine(), out double Diagonal1);
+        Console.WriteLine("e qual a diagonal 2?");
+        double.TryParse(Console.ReadLine(), out double Diagonal2);
+        Console.WriteLine($"então a área é de {(Diagonal1 * Diagonal2)/2}");
+        break;
+
+    default: // Executado se o usuário digitar qualquer número fora de 1 a 7
+        Console.WriteLine("opção invalida");
+        break;
+}
