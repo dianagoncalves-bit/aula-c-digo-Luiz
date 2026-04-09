@@ -1,4 +1,5 @@
 DIANA GOUVEIA GONÇALVES
+//******************* fribonacci **********************
 // Solicita ao usuário que informe quantos números da sequência ele deseja visualizar
 Console.WriteLine("digite a quantidade de termos que você quer decobrir: ");
 
