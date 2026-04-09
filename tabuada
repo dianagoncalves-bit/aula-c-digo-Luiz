@@ -1,0 +1,12 @@
+//********************** tabuada ********************
+Console.WriteLine("digite um numero para a tabuada: ");
+int.TryParse(Console.ReadLine(), out int escolha);
+for  (int i = 0; i <= escolha; i++)
+{
+    Console.WriteLine($"********TABUADA DO {i}*******\n");
+    for (int j = 0; j <= 10; j++)
+    {
+        Console.WriteLine($"{i} * {j} = {i * j}  ");
+    }
+    Console.WriteLine("");
+}
