@@ -1,21 +1,36 @@
 //******************* numeros primos ***************
+// Exibe uma mensagem solicitando um número inteiro ao usuário
 Console.WriteLine("escolha um número inteiro");
+// Lê a entrada do usuário e tenta converter para um número inteiro (int)
+// O '!' após Console.ReadLine() indica ao C# que aceitamos que o valor possa ser nulo
 int.TryParse(Console.ReadLine()!, out int primo);
+
+// Variável 'acumuladora' para contar quantas vezes a divisão deu resto zero
 var zeros = 0;
+
+// Loop que percorre todos os números de 1 até o número digitado
 for (int i = 1; i <= primo; i++)
 {
+    // Exibe o resto da divisão do número escolhido pelo contador atual (i)
+    // O operador '%' (módulo) retorna o que sobra da divisão inteira
     Console.WriteLine(primo % i);
 
-    if ((primo % i)== 0)
+    // Verifica se o resto da divisão é exatamente zero (divisão exata)
+    if ((primo % i) == 0)
     {
+        // Se for divisível, incrementa o contador de divisores
         zeros = zeros + 1;
     }
 }
-if  (zeros == 2)
+
+// Lógica do número primo: ele só pode ser dividido por 1 e por ele mesmo
+// Portanto, se o contador 'zeros' for exatamente 2, o número é primo
+if (zeros == 2)
 {
     Console.WriteLine("pabéns, o seu númeo é primo");
 }
 else
 {
+    // Caso tenha mais (ou menos) de 2 divisores, não é primo
     Console.WriteLine("que pena, seu número não é primo");
 }
