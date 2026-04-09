@@ -1,0 +1,104 @@
+DIANA GOUVEIA GONÇALVES 
+// *********************** Jogo Jokenpô  *********************** 
+// Declara as variáveis para as escolhas do jogador e da máquina
+int escolhajogador = 0;
+int escolhaCPU = 0;
+
+// Configura o console para exibir caracteres especiais (como acentos e emojis) corretamente
+Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+// Pede o nome do usuário para o novo jogo
+Console.WriteLine("Grande herói, qual seu nome?");
+string nomeHeroi = Console.ReadLine(); // Alterei para 'nomeHeroi' para não conflitar com o código acima
+
+// Pergunta se o usuário precisa ler as instruções do jogo
+Console.WriteLine("você quer ver as regras?");
+Console.WriteLine("sim (S) | não (N)");
+string verRegras = Console.ReadLine();
+
+// Se o usuário desejar, exibe o tutorial do Pedra, Papel e Tesoura
+if (verRegras == "S")
+{
+    // O '@' permite escrever textos longos com várias linhas (verbatim string)
+    Console.WriteLine(@"Regras do Jokenpô (Pedra, Papel e Tesoura)
+
+O Jokenpô é um jogo simples jogado entre duas pessoas ou entre um jogador e o computador. 
+Cada participante escolhe um dos três elementos: pedra, papel ou tesoura.
+
+As escolhas são feitas ao mesmo tempo e o vencedor é definido pelas seguintes regras:
+
+Pedra ganha da tesoura (porque quebra a tesoura).
+Tesoura ganha do papel (porque corta o papel).
+Papel ganha da pedra (porque embrulha a pedra).
+
+Se os dois jogadores escolherem o mesmo elemento, ocorre um empate.");
+}
+
+
+
+Console.WriteLine("(*******************  Hackathon *************************)");
+// Inicia a narração da história para quem escolheu ler as regras (Opção S)
+Console.WriteLine("\nEra uma vez em um lugar muito, muito distante, você, " +
+"um grande herói foi para uma caverna para recuperar o Um Anel, " +
+"pois seu grande mestre e salvador pode estar correndo perigo, " +
+"e o único jeito dele se salvar é recuperando a relíquia que ele mesmo criou, " +
+$"mas em um determinado momento foi roubado dele. Você, {nome}, " +
+$"descobriu que o Um Anel está em uma caverna. Você acaba de passar por diversos desafios, " +
+"tudo isso para devolver o Um Anel ao seu mestre e salvá-lo do descanso eterno.");
+
+// Solicita a jogada do usuário apresentando as opções numéricas
+Console.WriteLine("Esse é seu último desafio, então escolha: " +
+"\npedra 1" +
+"\npapel 2" +
+"\ntesoura 3");
+
+// Bloco executado caso o usuário tenha escolhido NÃO ler as regras (Opção N)
+else if (opcao == "N") 
+{
+    // Repete a narração da história (garante que o contexto seja dado independente da escolha anterior)
+    Console.WriteLine("\nEra uma vez em um lugar muito, muito distante, você, " +
+    "um grande herói foi para uma caverna para recuperar o Um Anel, " +
+    "pois seu grande mestre e salvador pode estar correndo perigo... " +
+    $"Você, {nome}, descobriu que o Um Anel está em uma caverna.");
+
+    Console.WriteLine("Esse é seu último desafio, então escolha: " +
+    "\npedra 1" +
+    "\npapel 2" +
+    "\ntesoura 3");
+}
+
+// Caso o usuário digite algo diferente de S ou N, solicita o reinício
+else if (opcao != "S" || opcao != "N")
+{
+    Console.WriteLine("\nReinicie o jogo");
+}
+
+// Lê a jogada do jogador e converte para o tipo inteiro
+int.TryParse(Console.ReadLine(), out escolhajogador );
+
+// Cria uma instância da classe Random para gerar números aleatórios
+Random embaralhar = new Random();
+
+// O computador escolhe um número entre 1 (inclusive) e 4 (exclusive), ou seja: 1, 2 ou 3
+escolhaCPU = embaralhar.Next(1, 4);
+
+// Revela qual foi a escolha feita pelo computador
+Console.WriteLine($"escolha da CPU: {escolhaCPU}");
+
+// Verifica se os números são iguais, resultando em um empate
+if (escolhaCPU == escolhajogador)
+{
+    Console.WriteLine("EMPATE: volte tudo de novo, seu mestre está esperando 🚶‍➡️🚶‍➡️");
+}
+
+// Lógica de derrota: Pedra(1)>Tesoura(3), Tesoura(3)>Papel(2), Papel(2)>Pedra(1)
+else if (escolhaCPU == 1 && escolhajogador == 3 || escolhaCPU == 3 && escolhajogador == 2 || escolhaCPU == 2 && escolhajogador == 1)
+{
+    Console.WriteLine("VOCÊ PERDEU: a sociedade do anel venceu, seu mestre terá o descanso eterno ☠️ 🧙‍ ☠️");
+}
+
+// Lógica de vitória: Jogador ganha da CPU seguindo as mesmas regras
+else if (escolhaCPU == 3 && escolhajogador == 1 || escolhaCPU == 2 && escolhajogador == 3 || escolhaCPU == 1 && escolhajogador == 2)
+{
+    Console.WriteLine("VOCÊ GANHOU: corra para devolver o um anel ao seu mestre!!! 💍👁️");
+}
