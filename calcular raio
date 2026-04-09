@@ -1,3 +1,4 @@
+DIANA GOUVEIA GONÇALVES
 //************************* CALCULAR O RAIO PELAS RODADAS ***********************************
 // Exibe uma mensagem solicitando que o usuário informe quantas vezes deseja realizar o cálculo
 Console.Write("Digite o numero de rodadas: ");
