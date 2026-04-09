@@ -1,0 +1,70 @@
+// Solicita ao usuário que informe quantos números da sequência ele deseja visualizar
+Console.WriteLine("digite a quantidade de termos que você quer decobrir: ");
+
+// Tenta converter a entrada do usuário para um número inteiro e armazena na variável 'termos'
+int.TryParse(Console.ReadLine()!, out int termos);
+
+// Declara o primeiro número da sequência (0) usando 'long' para suportar números bem grandes
+long a = 0;
+
+// Declara o segundo número da sequência (1) que ajudará a calcular o próximo
+long b = 1;
+
+// Inicia um laço que repetirá o processo exatamente a quantidade de vezes que o usuário pediu
+for (int i = 0; i < termos; i++)
+{
+    // Exibe o número atual da sequência (o valor de 'a') seguido de espaços
+    Console.WriteLine($"{a}  ");
+
+    // Calcula o próximo número da sequência somando os dois anteriores (a + b)
+    long proximo = a + b;
+
+    // Atualiza o valor de 'a' para ser o valor que estava em 'b' (anda uma casa para frente)
+    a = b;
+
+    // Atualiza o valor de 'b' para ser o novo resultado calculado (anda mais uma casa para frente)
+    b = proximo;
+}
+
+// Exibe uma linha decorativa para indicar o fim da lista de números
+Console.WriteLine("******************************************************");
+
+// Declara e inicia uma variável inteira 'cont' com o valor zero (não utilizada no loop acima)
+int cont = 0;
+
+Console.WriteLine("************** calculadora de números primos *******");
+
+// Solicita que o usuário digite o número que deseja verificar se é primo
+Console.WriteLine("digite o número:");
+
+// Lê a entrada do usuário, tenta converter para inteiro e armazena na variável 'primo'
+int.TryParse(Console.ReadLine(), out int primo);
+
+// Inicia um laço que vai de 1 até o número digitado para testar as divisões
+for (int i = 1; i <= primo; i++)
+{
+    // Verifica se o resto da divisão do número pelo contador 'i' é zero (se é divisível)
+    if (primo % i == 0)
+    {
+        // Se for divisível, incrementa o contador de divisores (nota: a variável 'cont' deve ser declarada antes)
+        cont++;
+    }
+    // Exibe o valor atual do divisor testado seguido de um caractere decorativo
+    Console.WriteLine($"{i}¨");
+}
+
+// Linha de comentário apenas para organização visual no código
+//********************************************************//   
+
+// Verifica se o número teve exatamente 2 divisores (ele mesmo e o número 1)
+if (cont == 2)
+{
+    // Se teve apenas 2 divisores, informa ao usuário que o número é primo
+    Console.WriteLine($"o número {primo} é primo");
+}
+// Caso o número tenha mais ou menos de 2 divisores
+else
+{
+    // Informa ao usuário que o número não se encaixa na regra de número primo
+    Console.WriteLine($"o número {primo} não é primo");
+}
