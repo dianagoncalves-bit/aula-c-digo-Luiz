@@ -1,12 +1,25 @@
 //********************** tabuada ********************
+// Exibe uma mensagem no console para instruir o usuário
 Console.WriteLine("digite um numero para a tabuada: ");
+
+// Lê a entrada do usuário (string) e tenta converter para um número inteiro (int)
+// O resultado da conversão é armazenado na variável 'escolha'
 int.TryParse(Console.ReadLine(), out int escolha);
-for  (int i = 0; i <= escolha; i++)
+
+// Loop externo: vai de 0 até o número que o usuário escolheu
+for (int i = 0; i <= escolha; i++)
 {
+    // Imprime um cabeçalho indicando qual tabuada está sendo calculada no momento
+    // O '\n' adiciona uma quebra de linha extra para organizar o visual
     Console.WriteLine($"********TABUADA DO {i}*******\n");
+
+    // Loop interno: para cada número 'i', ele vai multiplicar de 0 até 10
     for (int j = 0; j <= 10; j++)
     {
+        // Exibe o cálculo: multiplicando 'i' por 'j' e mostrando o resultado final
         Console.WriteLine($"{i} * {j} = {i * j}  ");
     }
+
+    // Pula uma linha após finalizar cada bloco de tabuada para não grudar no próximo
     Console.WriteLine("");
 }
