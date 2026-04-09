@@ -1,3 +1,4 @@
+DIANA GOUVEIA GONÇALVES
 // Solicita ao usuário que informe quantos números da sequência ele deseja visualizar
 Console.WriteLine("digite a quantidade de termos que você quer decobrir: ");
 
