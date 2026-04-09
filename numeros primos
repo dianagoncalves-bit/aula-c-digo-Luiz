@@ -1,0 +1,21 @@
+//******************* numeros primos ***************
+Console.WriteLine("escolha um número inteiro");
+int.TryParse(Console.ReadLine()!, out int primo);
+var zeros = 0;
+for (int i = 1; i <= primo; i++)
+{
+    Console.WriteLine(primo % i);
+
+    if ((primo % i)== 0)
+    {
+        zeros = zeros + 1;
+    }
+}
+if  (zeros == 2)
+{
+    Console.WriteLine("pabéns, o seu númeo é primo");
+}
+else
+{
+    Console.WriteLine("que pena, seu número não é primo");
+}
