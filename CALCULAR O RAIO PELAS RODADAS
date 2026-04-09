@@ -1,3 +1,4 @@
+DIANA GOUVEIA GONÇALVES
 // Exibe uma mensagem solicitando que o usuário informe quantas vezes deseja realizar o cálculo
 Console.Write("Digite o numero de rodadas: ");
 // Lê a entrada do teclado, tenta converter para um número inteiro e armazena na variável 'rodadas'
