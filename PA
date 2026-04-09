@@ -1,0 +1,25 @@
+//************************ PA ***********************************
+// Declara as variáveis inteiras 'saldo' (que aqui funciona como a razão) e 'termos'
+int saldo, termos;
+
+// Solicita ao usuário que informe quantos números ele quer ver na sequência
+Console.WriteLine("Digite o n° de termos: ");
+
+// Lê a entrada do usuário e tenta converter para um número inteiro na variável 'termos'
+int.TryParse(Console.ReadLine()!, out termos);
+
+// Solicita ao usuário o valor que será somado/multiplicado (a razão da sequência)
+Console.WriteLine("digite o n° do saldo: ");
+
+// Tenta converter a entrada do usuário para a variável 'saldo'
+int.TryParse(Console.ReadLine()!, out saldo);
+
+// Exibe o número zero como o ponto inicial da sequência no console
+Console.WriteLine("0;");
+
+// Inicia um laço que vai repetir o cálculo desde o primeiro termo até a quantidade definida
+for (int i = 1; i <= termos; i++) 
+{
+    // Calcula o termo atual multiplicando o saldo pelo índice 'i' e exibe o resultado
+    Console.WriteLine($"{saldo * i};");
+}
